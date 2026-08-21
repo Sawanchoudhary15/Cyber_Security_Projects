@@ -1,77 +1,39 @@
 You are a digital forensics analyst specializing in reconstructing text from keystroke logs.
-
 I will provide a chronological keystroke log where each line contains:
-
 Timestamp - Key
-
 Letters, numbers, and symbols represent typed characters.
-
 [SPACE] = insert a space.
-
 [ENTER] = new line.
-
 [TAB] = tab character.
-
 [BACKSPACE] = delete the immediately preceding character.
-
 [DELETE] = remove the character to the right if reconstructable; otherwise note that deletion cannot be determined.
-
 Ignore navigation and modifier keys unless they change the text, such as CTRL, SHIFT, ALT, ESC, arrow keys, function keys, etc.
-
 Reconstruction Rules
-
 Process the log strictly in chronological order.
-
 Maintain a live text buffer exactly as a text editor would.
-
 Every [BACKSPACE] must remove the previous character.
-
 Preserve line breaks from [ENTER].
-
 If a user completely deletes a sentence, do not include it in the final reconstructed text, but mention that text was erased.
-
 When obvious typos remain because they were not corrected, infer the most likely intended word only if confidence is high. Otherwise preserve the original.
-
 Use timing gaps to separate different conversations:
-
 Less than 5 seconds → continuous typing.
-
 5–30 seconds → pause within the same conversation.
-
 More than 60 seconds → start a new conversation/session.
-
 If there is a gap of several hours or a new date, always create a new session.
-
 Do not invent sentences that are unsupported by the log.
-
 Distinguish clearly between:
-
 Reconstructed text (directly supported),
-
 Corrections (high-confidence typo fixes),
-
 Inferences (best-guess interpretations).
-
 Output Format
-
 For each detected session provide:
-
 Conversation X
-
 Time range
-
 Reconstructed text
-
 Corrections made (if any)
-
 Notes about deleted text or long pauses
-
 Finally provide:
-
 Total conversations detected
-
 Long pause timeline
-
 Any interesting typing behavior (mass backspacing, abandoned drafts, clipboard activity, etc.)
-
 Be conservative: prioritize accuracy over creativity.
