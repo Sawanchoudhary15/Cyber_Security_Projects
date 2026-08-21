@@ -68,6 +68,9 @@ Special key → logs [ENTER] [SPACE] [BACKSPACE] etc
 Flushed to disk IMMEDIATELY
         ↓
 Every 30 minutes → emailed to receiver → log cleared
+        ↓
+Keylog file then can be uploaded to any AI agent and be made readable using the prompt provided in AI_prompt file
+
 ```
 
 ---
